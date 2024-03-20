@@ -33,6 +33,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 15px;
 }
 
 .orange-box-top {
@@ -45,33 +46,23 @@
   font-family: "Aleo", serif;
 }
 
+.orange-box-middle {
+  padding-top: 17px;
+  padding-left: 10px;
+}
+
 .orange-box-bottom {
   display: flex;
   margin-top: 0;
   margin-bottom: 0px;
   font-size: 18px;
   margin-left: 8px;
-}
-
-.orange-box-bottom-right {
-  display: grid;
-  margin-left: 3px;
-  margin-bottom: 15px;
-  padding-right: 10px;
-  font-size: 18px;
-  color: white;
-  font-family: "Aleo", serif;
-}
-
-.orange-box-bottom-left {
-  display: grid;
-  margin-bottom: 0px;
-  font-family: "Aleo", serif;
-  color: black;
+  margin-right: 8px;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 1024px) {
-
   .hero {
     flex-direction: row;
     justify-content: flex-start;

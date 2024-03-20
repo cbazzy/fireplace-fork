@@ -26,7 +26,7 @@ main {
 }
 
 .orange-box-top {
-  padding-top: 10px;
+  padding-top: 5px;
 }
 
 .orange-box-middle {
@@ -45,5 +45,5 @@ main {
 #hero-mobile-pic {
   display: flex;
   align-items: center;
-  margin-left: 0;
+  margin-left: 0px;
 }
