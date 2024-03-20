@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&display=swap");
+
 header {
   container-type: flex;
   flex-direction: row;
@@ -24,8 +26,7 @@ main {
 }
 
 .orange-box-top {
-  padding-top: 15px;
-  padding-left: 1px;
+  padding-top: 10px;
 }
 
 .orange-box-middle {
@@ -34,11 +35,15 @@ main {
 }
 
 .orange-box-bottom {
+  display: flex;
   padding-top: 15px;
   padding-bottom: 50px;
+  align-items: center;
+  margin-left: 0px;
 }
 
 #hero-mobile-pic {
-  width: 300px;
-  height: 300px;
+  display: flex;
+  align-items: center;
+  margin-left: 0;
 }

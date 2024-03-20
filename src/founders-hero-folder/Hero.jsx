@@ -21,6 +21,8 @@ export default function FounderHero() {
             <Image
               id="hero-mobile-pic"
               src="/founder-mike-and-mandy.png"
+              width={250}
+              height={250}
               alt="hero-mobile"
             />
           </div>
