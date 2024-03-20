@@ -1,0 +1,36 @@
+.footer {
+  background-image: linear-gradient(to top, rgb(251, 251, 113), rgb(246, 164, 92), rgb(206, 46, 46));
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+  /* Creates 2 columns of equal width */
+  grid-gap: 10px;
+  /* Adds gap between grid items */
+  padding-bottom: 25px;
+  padding-top: 35px;
+  font-family: "Aleo", serif;
+}
+
+.footer-left-upper {
+  justify-items: start;
+  padding-bottom: 9px;
+  padding-left: 9px;
+
+}
+
+.footer-left-lower {
+  justify-items: start;
+  padding-left: 9px;
+
+}
+
+.footer-right-upper {
+  justify-items: start;
+  padding-bottom: 9px;
+  padding-right: 9px;
+}
+
+.footer-right-lower {
+  justify-items: start;
+  padding-right: 9px;
+}
