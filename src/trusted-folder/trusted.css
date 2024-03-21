@@ -45,3 +45,11 @@
 .close-button {
   margin-top: 50px;
 }
+
+.review {
+  margin-top: 50px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}

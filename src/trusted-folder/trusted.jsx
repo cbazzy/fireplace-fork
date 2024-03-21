@@ -48,9 +48,11 @@ export default function Trusted() {
             <button onClick={handleClick} className="button">
               Scotland
             </button>
-            {scotlandToggle ? (<div><p>{review}</p></div>) : null}
+            
           </div>
+          
         </div>
+        {scotlandToggle ? (<div><p className="review">{review}</p></div>) : null}
       </div>
     </>
   );
