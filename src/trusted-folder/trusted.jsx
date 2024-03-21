@@ -3,13 +3,16 @@ import "react";
 import "./trusted.css";
 import { useState, useEffect } from "react";
 
+const apiURL = "https://seal-app-336e8.ondigitalocean.app/reviews?country=";
+const reviewURL = apiURL + "scotland"; //hard coded for now, will be dynamic later
+
 export default function Trusted() {
   const [scotlandToggle, setScotlandToggle] = useState(false);
 
   useEffect(() => {
     if (scotlandToggle) {
       console.log("scotland toggled");
-      fetch("https://seal-app-336e8.ondigitalocean.app/reviews?country=scotland")
+      fetch(reviewURL)
         .then(response => response.text())
         .then(data => {
           console.log(data);
@@ -52,6 +55,7 @@ export default function Trusted() {
             </button>
             {scotlandToggle ? (
               <div>
+
                 <button onClick={handleClick} className="close-button">
                   Close Button
                 </button>
