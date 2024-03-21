@@ -20,3 +20,11 @@ main {
   flex-direction: column;
   color: black;
 }
+
+@media (min-width: 1024px) {
+  .hiw-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+}

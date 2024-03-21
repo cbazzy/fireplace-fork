@@ -1,20 +1,7 @@
 @media (min-width: 1024px) {
-    .how-it-works {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      padding: auto;
-    }
-  
-    .how-it-works-title {
-      padding: 100px 0px 50px 0px;
-    }
-  
-    .how-it-works {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      /* Create 3 columns of equal width */
-      grid-gap: 10px;
-      /* Add gap between grid items */
-    }
+  .hiw-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
+}
