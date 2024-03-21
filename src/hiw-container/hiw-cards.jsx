@@ -5,7 +5,7 @@ const cards = [
   {
     img: "/how-it-works-1.png",
     title: "Give us a call ...",
-    text: "Call us and book in a &quot;Design Consultation&quot; on a date and time to suit you.",
+    text: "Call us and book in a 'Design Consultation' on a date and time to suit you.",
   },
   {
     img: "/how-it-works-2.png",
