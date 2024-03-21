@@ -11,15 +11,22 @@ export default function Trusted() {
 
   useEffect(() => {
     if (scotlandToggle) {
-      console.log("scotland toggled");
-      fetch(reviewURL)
-        .then(response => response.text())
-        .then(data => {
-          console.log(data);
-        })
-        .catch(error => {
-          console.error(error);
-        });
+      async function fetchScot() {
+        const response = await fetch(reviewURL);
+
+        result = await response.json();
+        return result.text;
+      }
+
+      // console.log("scotland toggled");
+      // fetch(reviewURL)
+      //   .then(response => response.text())
+      //   .then(data => {
+      //     console.log(data);
+      //   })
+      //   .catch(error => {
+      //     console.error(error);
+      //   });
     }
   }, [scotlandToggle]);
   function handleClick() {
@@ -55,10 +62,11 @@ export default function Trusted() {
             </button>
             {scotlandToggle ? (
               <div>
+                <p>fetchScot()</p>
 
-                <button onClick={handleClick} className="close-button">
+                {/* <button onClick={handleClick} className="close-button">
                   Close Button
-                </button>
+                </button> */}
               </div>
             ) : null}
           </div>
