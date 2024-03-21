@@ -4,34 +4,22 @@ import "./trusted.css";
 import { useState, useEffect } from "react";
 
 const apiURL = "https://seal-app-336e8.ondigitalocean.app/reviews?country=";
-const reviewURL = apiURL + "scotland"; //hard coded for now, will be dynamic later
+const scotURL = apiURL + "scotland"; //hard coded for now, will be dynamic later
+const engURL = apiURL + "england";
+const walesURL = apiURL + "wales";
 
 export default function Trusted() {
   const [scotlandToggle, setScotlandToggle] = useState(false);
+  const [review, setReview] = useState(null);
 
   useEffect(() => {
-    if (scotlandToggle) {
       async function fetchScot() {
-        const response = await fetch(reviewURL);
-
-        result = await response.json();
-        return result.text;
+      const response = await fetch(scotURL);
+      const result = await response.json();
+        setReview(result.text + result.author);
       }
 
-      // console.log("scotland toggled");
-      // fetch(reviewURL)
-      //   .then(response => response.text())
-      //   .then(data => {
-      //     console.log(data);
-      //   })
-      //   .catch(error => {
-      //     console.error(error);
-      //   });
-    }
-  }, [scotlandToggle]);
-  function handleClick() {
-    setScotlandToggle(!scotlandToggle);
-  }
+      if (scotlandToggle) {fetchScot();}}, [scotlandToggle]);
 
   function handleClick() {
     setScotlandToggle(!scotlandToggle);
@@ -60,15 +48,7 @@ export default function Trusted() {
             <button onClick={handleClick} className="button">
               Scotland
             </button>
-            {scotlandToggle ? (
-              <div>
-                <p>fetchScot()</p>
-
-                {/* <button onClick={handleClick} className="close-button">
-                  Close Button
-                </button> */}
-              </div>
-            ) : null}
+            {scotlandToggle ? (<div><p>{review}</p></div>) : null}
           </div>
         </div>
       </div>
