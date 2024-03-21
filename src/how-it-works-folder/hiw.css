@@ -6,10 +6,11 @@
 }
 
 .hiw-image-container {
-  max-height: 50%;
+  max-height: 100%;
   display: flex;
   justify-content: center;
   margin: auto;
+  font-family: "Aleo", serif;
 }
 
 .how-it-works-title {
@@ -18,8 +19,8 @@
   font-weight: 520;
   font-optical-sizing: auto;
   font-style: normal;
-  padding-top: 20px;
-  font-size: 24px;
+  padding-top: 60px;
+  font-size: 30px;
   padding-bottom: 25px;
 }
 
@@ -70,4 +71,9 @@
 }
 
 @media (min-width: 1024px) {
+  .hiw-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 }

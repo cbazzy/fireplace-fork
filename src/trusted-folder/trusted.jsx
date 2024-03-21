@@ -10,19 +10,29 @@ const walesURL = apiURL + "wales";
 
 export default function Trusted() {
   const [scotlandToggle, setScotlandToggle] = useState(false);
+  // change the color into orange when clicked
+  const [buttonColor, setButtonColor] = useState("button");
   const [review, setReview] = useState(null);
+  const [review2, setReview2] = useState(null);
+  const [review3, setReview3] = useState(null);
 
   useEffect(() => {
-      async function fetchScot() {
+    async function fetchScot() {
       const response = await fetch(scotURL);
       const result = await response.json();
-        setReview(result.text + result.author);
-      }
+      setReview(result.text);
+      setReview2(result.author);
+      setReview3(result.location);
+    }
 
-      if (scotlandToggle) {fetchScot();}}, [scotlandToggle]);
+    if (scotlandToggle) {
+      fetchScot();
+    }
+  }, [scotlandToggle]);
 
   function handleClick() {
     setScotlandToggle(!scotlandToggle);
+    setButtonColor(scotlandToggle ? "button" : "button orange");
   }
 
   return (
@@ -45,15 +55,27 @@ export default function Trusted() {
           </div>
 
           <div>
-            <button onClick={handleClick} className="button">
+            <button onClick={handleClick} className={buttonColor}>
               Scotland
             </button>
-            
           </div>
-          
         </div>
-        {scotlandToggle ? (<div><p className="review">{review}</p></div>) : null}
+        {scotlandToggle ? (
+          <div className="review-container">
+            <div>
+              <p className="review-text">{'"' + review + '"'}</p>
+            </div>
+
+            <div>
+              <p className="review-author-location-text">
+                {review2 + " - " + review3}
+              </p>
+            </div>
+          </div>
+        ) : null}
       </div>
+
+      <div></div>
     </>
   );
 }
