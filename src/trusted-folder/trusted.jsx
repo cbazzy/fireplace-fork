@@ -9,6 +9,14 @@ export default function Trusted() {
   useEffect(() => {
     if (scotlandToggle) {
       console.log("scotland toggled");
+      fetch("https://seal-app-336e8.ondigitalocean.app/reviews?country=scotland")
+        .then(response => response.text())
+        .then(data => {
+          console.log(data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
     }
   }, [scotlandToggle]);
   function handleClick() {
