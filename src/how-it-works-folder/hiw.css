@@ -1,79 +1,74 @@
 .how-it-works {
-    display: flex;
-    flex-direction: column;
-    max-height: 100%;
-    justify-content: center;
-  }
-  
-  .hiw-image-container {
-    max-height: 100%;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    font-family: "Aleo", serif;
-  }
-  
-  .how-it-works-title {
-    text-align: center;
-    font-family: "Aleo", serif;
-    font-weight: 520;
-    font-optical-sizing: auto;
-    font-style: normal;
-    padding-top: 20px;
-    font-size: 24px;
-    padding-bottom: 25px;
-  }
-  
-  .hiw-textbox {
-    padding-top: 18px;
-    padding-bottom: 22px;
-    display: grid;
-    justify-content: center;
-    font-family: "Aleo", serif;
-    font-weight: 500;
-    text-align: center;
-  }
-  
-  .hiw-textbox-title {
-    margin-bottom: 6px;
-    text-align: center;
-    padding-bottom: 15px;
-    font-size: 19px;
-  }
-  
-  .hiw-textbox-desc {
-    display: grid;
-    margin-bottom: 20px;
-    justify-content: center;
-    text-align: center;
-    font-weight: 400;
-    font-size: 16px;
-  }
-  
-  .hiw-image-container {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  #hiw-1 {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  #hiw-2 {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  #hiw-3 {
-    max-width: 100%;
-    height: auto;
-  }
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  justify-content: center;
+}
 
-  @media (min-width: 1024px) {
-    .hiw-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-    }
-  }
+.hiw-image-container {
+  max-height: 100%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  font-family: "Aleo", serif;
+}
+
+.how-it-works-title {
+  text-align: center;
+  font-family: "Aleo", serif;
+  font-weight: 520;
+  font-optical-sizing: auto;
+  font-style: normal;
+  padding-top: 20px;
+  font-size: 24px;
+  padding-bottom: 25px;
+}
+
+.hiw-textbox {
+  padding-top: 18px;
+  padding-bottom: 22px;
+  display: grid;
+  justify-content: center;
+  font-family: "Aleo", serif;
+  font-weight: 500;
+  text-align: center;
+}
+
+.hiw-textbox-title {
+  margin-bottom: 6px;
+  text-align: center;
+  padding-bottom: 15px;
+  font-size: 19px;
+}
+
+.hiw-textbox-desc {
+  display: grid;
+  margin-bottom: 20px;
+  justify-content: center;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.hiw-image-container {
+  max-width: 100%;
+  height: auto;
+}
+
+#hiw-1 {
+  max-width: 100%;
+  height: auto;
+}
+
+#hiw-2 {
+  max-width: 100%;
+  height: auto;
+}
+
+#hiw-3 {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (min-width: 1024px) {
+}

@@ -22,7 +22,7 @@ main {
 }
 
 @media (min-width: 1024px) {
-  .hiw-container {
+  .how-it-works {
     display: flex;
     flex-direction: row;
     justify-content: center;

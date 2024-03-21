@@ -1,0 +1,32 @@
+.trusted-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  align-items: center;
+}
+
+.trusted-title {
+  text-align: center;
+  font-family: "Aleo", serif;
+  font-weight: 520;
+  font-optical-sizing: auto;
+  font-style: normal;
+  padding-top: 20px;
+  font-size: 24px;
+  padding-bottom: 25px;
+}
+
+.trusted-desc {
+  display: grid;
+  margin-bottom: 20px;
+  justify-content: center;
+  text-align: center;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.buttons-container {
+ display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
