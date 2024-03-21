@@ -21,7 +21,7 @@ export default function Hero() {
             <div className="orange-box-top">
               Discover the
               <br />
-              Perfect Fireplace...
+              Perfect Fireplace ...
             </div>
 
             <div className="orange-box-bottom">
