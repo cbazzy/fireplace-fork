@@ -22,3 +22,8 @@ header {
 body.no-scroll {
   overflow: hidden;
 }
+
+button {
+  background: 0;
+  border: 0;
+}

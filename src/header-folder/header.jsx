@@ -10,13 +10,13 @@ export default function Header() {
 
   // UseEffect is a React hook that runs when menuToggle state changes
   useEffect(() => {
-
-    const body = document.body
+    const body = document.body;
+    const title = document.querySelector("body > header > span");
 
     if (menuToggle) {
-      body.classList.add('no-scroll');
-    }
-    else body.classList.remove('no-scroll');
+      body.classList.add("no-scroll");
+      title.remove();
+    } else body.classList.remove("no-scroll") && React.createElement(title);
   }, [menuToggle]);
 
   // This function is called when menu button is clicked
@@ -45,8 +45,12 @@ export default function Header() {
       {menuToggle ? (
         <div className="mobile-menu">
           <nav>
-            <Link href="/">Home</Link>
-            <Link href="/founders">Meet the Founders</Link>
+            <div>
+              <Link href="/">Home</Link>
+            </div>
+            <div>
+              <Link href="/founders">Meet the Founders</Link>
+            </div>
             {/* Add more links as needed */}{" "}
           </nav>
         </div>
