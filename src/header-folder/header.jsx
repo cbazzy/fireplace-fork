@@ -27,7 +27,7 @@ export default function Header() {
     : "/menu-open-button.png";
 
   return (
-    <header>
+    <header className={menuToggle ? "orange-background" : ""}>
       <span>🔥 Fireplace Palace</span>
       <button onClick={handleClick}>
         <Image
