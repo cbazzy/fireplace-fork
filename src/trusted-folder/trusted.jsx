@@ -5,33 +5,37 @@ import "./trusted.css";
 const apiURL = "https://seal-app-336e8.ondigitalocean.app/reviews?country=";
 
 export default function Trusted() {
+  //initialise toggleState var & stores boolean vals for country toggles
   const [toggleStates, setToggleStates] = useState({
     scotland: false,
     wales: false,
-    england: false
+    england: false,
   });
 
+  //initialise review state var & stores review data for each country
   const [reviews, setReviews] = useState({
     scotland: { text: null, author: null, location: null },
     wales: { text: null, author: null, location: null },
-    england: { text: null, author: null, location: null }
+    england: { text: null, author: null, location: null },
   });
 
+  //fetchData runs when certain dependancies change
   useEffect(() => {
     async function fetchData(country) {
       const response = await fetch(apiURL + country);
       const result = await response.json();
-      setReviews(prevState => ({
+      //updates reviews var with new data for the clicked country
+      setReviews((prevState) => ({
         ...prevState,
         [country]: {
           text: result.text,
           author: result.author,
-          location: result.location
-        }
+          location: result.location,
+        },
       }));
     }
-
-    Object.keys(toggleStates).forEach(country => {
+    //loops over the keys of toggleStates object (these are the countries)
+    Object.keys(toggleStates).forEach((country) => {
       if (toggleStates[country]) {
         fetchData(country);
       }
@@ -39,9 +43,9 @@ export default function Trusted() {
   }, [toggleStates]);
 
   function handleClick(country) {
-    setToggleStates(prevState => ({
+    setToggleStates((prevState) => ({
       ...prevState,
-      [country]: !prevState[country]
+      [country]: !prevState[country],
     }));
   }
 
@@ -58,7 +62,9 @@ export default function Trusted() {
         <div>
           <button
             onClick={() => handleClick("england")}
-            className={toggleStates.england ? "buttonEng orangeEng" : "buttonEng"}
+            className={
+              toggleStates.england ? "buttonEng orangeEng" : "buttonEng"
+            }
           >
             England
           </button>
@@ -67,7 +73,9 @@ export default function Trusted() {
         <div>
           <button
             onClick={() => handleClick("wales")}
-            className={toggleStates.wales ? "buttonWales orangeWales" : "buttonWales"}
+            className={
+              toggleStates.wales ? "buttonWales orangeWales" : "buttonWales"
+            }
           >
             Wales
           </button>
@@ -76,19 +84,23 @@ export default function Trusted() {
         <div>
           <button
             onClick={() => handleClick("scotland")}
-            className={toggleStates.scotland ? "buttonScot orangeScot" : "buttonScot"}
+            className={
+              toggleStates.scotland ? "buttonScot orangeScot" : "buttonScot"
+            }
           >
             Scotland
           </button>
         </div>
       </div>
 
-      {Object.keys(toggleStates).map(country => {
+      {Object.keys(toggleStates).map((country) => {
         if (toggleStates[country]) {
           return (
             <div className="review-container" key={country}>
               <div>
-                <p className="review-text">{'"' + reviews[country].text + '"'}</p>
+                <p className="review-text">
+                  {'"' + reviews[country].text + '"'}
+                </p>
               </div>
 
               <div>

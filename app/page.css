@@ -1,12 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&display=swap");
 
-header {
-  container-type: flex;
+/* header {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   background-color: white;
   color: black;
-}
+} */
 
 span {
   font-family: "Aleo", serif;
@@ -14,11 +14,13 @@ span {
 }
 
 main {
+  z-index: 0;
   background-color: white;
   display: flex;
   justify-content: center;
   flex-direction: column;
   color: black;
+  position: relative;
 }
 
 @media (min-width: 1024px) {
