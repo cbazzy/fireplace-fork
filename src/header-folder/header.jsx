@@ -10,9 +10,13 @@ export default function Header() {
 
   // UseEffect is a React hook that runs when menuToggle state changes
   useEffect(() => {
+
+    const body = document.body
+
     if (menuToggle) {
-      console.log("Menu opened");
+      body.classList.add('no-scroll');
     }
+    else body.classList.remove('no-scroll');
   }, [menuToggle]);
 
   // This function is called when menu button is clicked
