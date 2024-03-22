@@ -15,8 +15,7 @@ export default function Header() {
 
     if (menuToggle) {
       body.classList.add("no-scroll");
-      title.remove();
-    } else body.classList.remove("no-scroll") && React.createElement(title);
+    } else body.classList.remove("no-scroll");
   }, [menuToggle]);
 
   // This function is called when menu button is clicked
@@ -32,7 +31,7 @@ export default function Header() {
 
   return (
     <header className={menuToggle ? "orange-background" : ""}>
-      <span>🔥 Fireplace Palace</span>
+      {!menuToggle && <span>🔥 Fireplace Palace</span>}
       <button onClick={handleClick}>
         <Image
           className="menu-btn"
