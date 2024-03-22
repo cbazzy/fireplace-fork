@@ -25,7 +25,7 @@
   font-size: 17px;
 }
 
-.button {
+.buttonScot {
   width: 102px;
   height: 40px;
   background-color: gray;
@@ -35,7 +35,37 @@
   font-family: "Aleo", serif;
 }
 
-.orange {
+.orangeScot {
+  background-color: #f0911b;
+  color: black;
+}
+
+.buttonWales {
+  width: 102px;
+  height: 40px;
+  background-color: gray;
+  color: white;
+  border-width: 0px;
+  border-radius: 2px;
+  font-family: "Aleo", serif;
+}
+
+.orangeWales {
+  background-color: #f0911b;
+  color: black;
+}
+
+.buttonEng {
+  width: 102px;
+  height: 40px;
+  background-color: gray;
+  color: white;
+  border-width: 0px;
+  border-radius: 2px;
+  font-family: "Aleo", serif;
+}
+
+.orangeEng {
   background-color: #f0911b;
   color: black;
 }

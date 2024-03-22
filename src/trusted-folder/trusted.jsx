@@ -11,7 +11,7 @@ const walesURL = apiURL + "wales";
 export default function Trusted() {
   const [scotlandToggle, setScotlandToggle] = useState(false);
   // change the color into orange when clicked
-  const [buttonColor, setButtonColor] = useState("button");
+  const [buttonColorScot, setButtonColorScot] = useState("buttonScot");
   const [review, setReview] = useState(null);
   const [review2, setReview2] = useState(null);
   const [review3, setReview3] = useState(null);
@@ -30,9 +30,61 @@ export default function Trusted() {
     }
   }, [scotlandToggle]);
 
-  function handleClick() {
+  function handleClickScot() {
     setScotlandToggle(!scotlandToggle);
-    setButtonColor(scotlandToggle ? "button" : "button orange");
+    setButtonColorScot(scotlandToggle ? "buttonScot" : "buttonScot orangeScot");
+  }
+
+  const [walesToggle, setWalesToggle] = useState(false);
+  // change the color into orange when clicked
+  const [buttonColorWales, setButtonColorWales] = useState("buttonWales");
+  const [reviewWales1, setReviewWales1] = useState(null);
+  const [reviewWales2, setReviewWales2] = useState(null);
+  const [reviewWales3, setReviewWales3] = useState(null);
+
+  useEffect(() => {
+    async function fetchWales() {
+      const response = await fetch(walesURL);
+      const result = await response.json();
+      setReviewWales1(result.text);
+      setReviewWales2(result.author);
+      setReviewWales3(result.location);
+    }
+
+    if (walesToggle) {
+      fetchWales();
+    }
+  }, [walesToggle]);
+
+  function handleClickWales() {
+    setWalesToggle(!walesToggle);
+    setButtonColorWales(walesToggle ? "buttonWales" : "buttonWales orangeWales");
+  }
+
+  const [engToggle, setEngToggle] = useState(false);
+  // change the color into orange when clicked
+  const [buttonColorEng, setButtonColorEng] = useState("buttonWales");
+  const [reviewEng1, setReviewEng1] = useState(null);
+  const [reviewEng2, setReviewEng2] = useState(null);
+  const [reviewEng3, setReviewEng3] = useState(null);
+
+  useEffect(() => {
+    async function fetchEng() {
+      const response = await fetch(engURL);
+      const result = await response.json();
+      setReviewEng1(result.text);
+      setReviewEng2(result.author);
+      setReviewEng3(result.location);
+    }
+
+    if (engToggle) {
+      fetchEng();
+    }
+  }, [engToggle]);
+
+  function handleClickEng() {
+    setEngToggle(!engToggle);
+    setButtonColorEng(engToggle ? "buttonEng" : "buttonEng orangeEng");
   }
 
   return (
@@ -47,19 +99,27 @@ export default function Trusted() {
 
         <div className="buttons-container">
           <div>
-            <button className="button">England</button>
+          <button onClick={handleClickEng} className={buttonColorEng}>
+              England
+            </button>
           </div>
 
           <div>
-            <button className="button">Wales</button>
+          <button onClick={handleClickWales} className={buttonColorWales}>
+              Wales
+            </button>
           </div>
 
           <div>
-            <button onClick={handleClick} className={buttonColor}>
+            <button onClick={handleClickScot} className={buttonColorScot}>
               Scotland
             </button>
           </div>
         </div>
+
+
+
+
         {scotlandToggle ? (
           <div className="review-container">
             <div>
@@ -68,17 +128,49 @@ export default function Trusted() {
 
             <div>
               <p className="review-author-location-text">
-                {review2 + " - " + review3}
+                {review2 + " - "  + review3}
+              </p>
+            </div>
+          </div>
+        ) : null}
+      </div>
+<div>
+  
+  
+      
+      {walesToggle ? (
+          <div className="review-container">
+            <div>
+              <p className="review-text">{'"' + reviewWales1 + '"'}</p>
+            </div>
+
+            <div>
+              <p className="review-author-location-text">
+                {reviewWales2 + " - "  + reviewWales3}
               </p>
             </div>
           </div>
         ) : null}
       </div>
 
-      <div></div>
+      {engToggle ? (
+          <div className="review-container">
+            <div>
+              <p className="review-text">{'"' + reviewEng1 + '"'}</p>
+            </div>
+
+            <div>
+              <p className="review-author-location-text">
+                {reviewEng2 + " - "  + reviewEng3}
+              </p>
+            </div>
+          </div>
+        ) : null}
     </>
   );
 }
+
+
 
 //   <button onClick={handleClick}>Menu</button>
 // {menuToggle ? <div className="mobile-menu">
