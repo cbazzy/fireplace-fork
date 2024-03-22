@@ -32,7 +32,7 @@ export default function Header() {
   return (
     <header className={menuToggle ? "orange-background" : ""}>
       {!menuToggle && <span>🔥 Fireplace Palace</span>}
-      <button onClick={handleClick}>
+      <button className="menu-button" onClick={handleClick}>
         <Image
           className="menu-btn"
           src={menuButtonImage}
@@ -44,10 +44,10 @@ export default function Header() {
       {menuToggle ? (
         <div className="mobile-menu">
           <nav>
-            <div>
+            <div className="links">
               <Link href="/">Home</Link>
             </div>
-            <div>
+            <div className="links">
               <Link href="/founders">Meet the Founders</Link>
             </div>
             {/* Add more links as needed */}{" "}
