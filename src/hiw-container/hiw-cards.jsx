@@ -21,7 +21,7 @@ const cards = [
 
 const Cards = () => {
   return (
-    <div className="hiw-container">
+    <div className="hiw-main">
       {cards.map((card) => {
         // eslint-disable-next-line react/jsx-key
         return <Card img={card.img} title={card.title} text={card.text} />;

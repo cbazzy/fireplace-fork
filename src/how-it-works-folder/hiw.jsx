@@ -7,9 +7,7 @@ export default function Hiw() {
     <>
       <div className="how-it-works-title">How it works.</div>
 
-      <div className="how-it-works">
-        <Cards />
-      </div>
+      <Cards />
     </>
   );
 }
