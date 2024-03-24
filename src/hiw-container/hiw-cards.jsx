@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "./hiw-card";
+import { Card } from "./hiw-card"; // import with braces as it wasn't a default import
 
 const cards = [
   {
@@ -23,7 +23,6 @@ const Cards = () => {
   return (
     <div className="hiw-main">
       {cards.map((card) => {
-        // eslint-disable-next-line react/jsx-key
         return <Card img={card.img} title={card.title} text={card.text} />;
       })}
     </div>

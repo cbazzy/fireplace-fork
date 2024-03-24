@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = (props) => {
+export const Card = (props) => {
   return (
     <div className="hiw-container">
       <div className="hiw-image-container">
@@ -15,4 +15,3 @@ const Card = (props) => {
   );
 };
 
-export default Card;

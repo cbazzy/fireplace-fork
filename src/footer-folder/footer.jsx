@@ -9,12 +9,15 @@ export default function Footer() {
           <div className="footer-left-upper">Find us on:</div>
 
           <div className="footer-left-lower">
+            <div className="social-media">
             Facebook
-            <br />
+            </div>
+            <div className="social-media">
             Twitter
-            <br />
+            </div>
+            <div className="social-media">
             Instagram
-            <br />
+            </div>
           </div>
         </div>
 

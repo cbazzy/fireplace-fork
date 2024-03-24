@@ -1,0 +1,18 @@
+span {
+  font-family: "Aleo", serif;
+  font-weight: 700;
+}
+
+main {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: black;
+}
+
+header {
+  padding-bottom: 10px;
+}
+
+

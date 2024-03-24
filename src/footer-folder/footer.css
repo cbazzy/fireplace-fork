@@ -15,6 +15,8 @@
   justify-items: start;
   padding-bottom: 9px;
   padding-left: 9px;
+  width: 90px
+
 }
 
 .footer-left-lower {
@@ -31,4 +33,39 @@
 .footer-right-lower {
   justify-items: start;
   padding-right: 9px;
+  color: black;
+  text-decoration-color: black;
+}
+
+@media (min-width: 1024px) { 
+  .footer-left-upper {
+    justify-items: start;
+    padding-bottom: 9px;
+    padding-left: 170px;
+  }
+  
+  .footer-left-lower {
+    justify-items: start;
+    padding-left: 170px;
+    display: flex;
+  }
+
+  .social-media {
+    padding-right: 5px;
+  }
+
+  .footer-right-upper {
+    display: grid;
+    justify-items: end;
+    padding-bottom: 9px;
+    padding-right: 110px;
+  }
+  
+  .footer-right-lower {
+    display: grid;
+    justify-items: end;
+    padding-right: 110px;
+    color: black;
+    text-decoration-color: black;
+  }
 }

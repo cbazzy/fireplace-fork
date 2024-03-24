@@ -10,7 +10,6 @@
   display: flex;
   justify-content: center;
   margin: auto;
-  font-family: "Aleo", serif;
 }
 
 .how-it-works-title {
@@ -48,11 +47,6 @@
   text-align: center;
   font-weight: 400;
   font-size: 16px;
-}
-
-.hiw-image-container {
-  max-width: 100%;
-  height: auto;
 }
 
 #hiw-1 {
