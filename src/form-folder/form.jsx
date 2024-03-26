@@ -6,14 +6,39 @@ export default function Form() {
     <>
       <div>
         <form className="form">
-          <input id="full-name" type="text" placeholder="... John Smith" />
-          <input id="postcode" type="text" placeholder="... B1 7UJ" />
-          <input id="address" type="text" placeholder="... 1 Placeholder Lane" />
-          <input id="city" type="text" placeholder="... London" />
-          <input id="phone-number" type="number" placeholder="... John Smith" />
-          <input id="email" type="email" placeholder="... John Smith" />
+          <label>
+            Full Name
+            <input id="full-name" type="text" placeholder="... John Smith" />
+          </label>
+          <label>
+            Postcode
+            <input id="postcode" type="text" placeholder="... B1 7UJ" />
+          </label>
+          <label>
+            House/Flat No./Name & first line of address
+            <input
+              id="address"
+              type="text"
+              placeholder="... 1 Placeholder Lane"
+            />
+          </label>
 
-          <button type="submit">Add New Card</button>
+          <label>
+            <input id="city" type="text" placeholder="... London" />
+          </label>
+          <label>
+            <input
+              id="phone-number"
+              type="number"
+              placeholder="... John Smith"
+            />
+          </label>
+
+          <label>
+            <input id="email" type="email" placeholder="... John Smith" />
+          </label>
+
+          <button type="submit">Request Design Consultation</button>
         </form>
       </div>
     </>
