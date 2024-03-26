@@ -17,6 +17,7 @@ form {
 
 .error-message {
   color: darkred;
+  text-decoration: underline;
 }
 
 label {
