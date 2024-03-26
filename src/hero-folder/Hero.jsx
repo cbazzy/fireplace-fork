@@ -1,6 +1,7 @@
 import React from "react";
 import "./hero.css";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -25,9 +26,11 @@ export default function Hero() {
             </div>
 
             <div className="orange-box-bottom">
-              <div className="orange-box-bottom-left">Book consultation:</div>
-
-              <div className="orange-box-bottom-right">0121 345 6789</div>
+              <div className="orange-box-bottom-left">
+                <Link href="/booking" id="booking-button">
+                  Book consultation
+                </Link>
+              </div>
             </div>
           </div>
         </div>

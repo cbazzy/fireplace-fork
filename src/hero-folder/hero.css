@@ -10,6 +10,18 @@
   height: auto;
 }
 
+#booking-button {
+  background-color: #f0911b;
+  color: white;
+  font-size: 35px;
+  font-weight: 1000;
+  margin-left: 20px;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
 .hero-mobile-pic-container {
   /* /* max-width: 300px; */
   max-height: 50%;
