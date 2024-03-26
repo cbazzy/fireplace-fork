@@ -2,4 +2,26 @@ form {
   background-color: grey;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+  /* Spacing between form elements */
+  margin: 1rem auto;
+  /* Center the form horizontally */
+  width: fit-content;
+  /* Adjust width as needed */
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  /* Spacing between label and input */
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
 }

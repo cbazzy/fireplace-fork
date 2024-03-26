@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import "./form.css";
 
 export default function Form() {
   return (
