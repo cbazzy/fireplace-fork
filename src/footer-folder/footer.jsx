@@ -9,15 +9,9 @@ export default function Footer() {
           <div className="footer-left-upper">Find us on:</div>
 
           <div className="footer-left-lower">
-            <div className="social-media">
-            Facebook
-            </div>
-            <div className="social-media">
-            Twitter
-            </div>
-            <div className="social-media">
-            Instagram
-            </div>
+            <div className="social-media">Facebook</div>
+            <div className="social-media">Twitter</div>
+            <div className="social-media">Instagram</div>
           </div>
         </div>
 
@@ -25,7 +19,6 @@ export default function Footer() {
           <div className="footer-right-upper">© Fireplace Palace</div>
 
           <div className="footer-right-lower">
-            <a href="https://www.fireplacepalace.com">info@firepalace.co.uk</a>
           </div>
         </div>
       </footer>
