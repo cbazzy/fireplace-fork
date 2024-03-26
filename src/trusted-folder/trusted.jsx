@@ -51,12 +51,7 @@ export default function Trusted() {
 
   return (
     <div className="trusted-container">
-      <div
-        onClick={() => handleClick("scotland")}
-        className={toggleStates.scotland ? "testScot orangeScot" : "testScot"}
-      >
-        Trusted.
-      </div>
+      <div className="trusted-title">Trusted.</div>
 
       <div className="trusted-desc">
         We've got thousands of happy customers all over the UK. Choose your

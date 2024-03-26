@@ -7,37 +7,27 @@ export default function Form() {
     <>
       <div>
         <form className="form">
-          <label>
-            Full Name
-            <input id="full-name" type="text" placeholder="... John Smith" />
-          </label>
-          <label>
-            Postcode
-            <input id="postcode" type="text" placeholder="... B1 7UJ" />
-          </label>
-          <label>
-            House/Flat No./Name & first line of address
-            <input
-              id="address"
-              type="text"
-              placeholder="... 1 Placeholder Lane"
-            />
-          </label>
+          <label>Full Name</label>
+          <input id="full-name" type="text" placeholder="... John Smith" />
 
-          <label>
-            <input id="city" type="text" placeholder="... London" />
-          </label>
-          <label>
-            <input
-              id="phone-number"
-              type="number"
-              placeholder="... John Smith"
-            />
-          </label>
+          <label>Postcode</label>
+          <input id="postcode" type="text" placeholder="... B1 7UJ" />
 
-          <label>
-            <input id="email" type="email" placeholder="... John Smith" />
-          </label>
+          <label>House/Flat No./Name & first line of address</label>
+          <input
+            id="address"
+            type="text"
+            placeholder="... 1 Placeholder Lane"
+          />
+
+          <label>City</label>
+          <input id="city" type="text" placeholder="... London" />
+
+          <label>Phone Number</label>
+          <input id="phone-number" type="number" placeholder="... John Smith" />
+
+          <label>Email</label>
+          <input id="email" type="email" placeholder="... John Smith" />
 
           <button type="submit">Request Design Consultation</button>
         </form>

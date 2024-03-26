@@ -1,5 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&display=swap");
+
 form {
-  background-color: grey;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -8,6 +12,7 @@ form {
   /* Center the form horizontally */
   width: fit-content;
   /* Adjust width as needed */
+  font-family: "Aleo", serif;
 }
 
 label {

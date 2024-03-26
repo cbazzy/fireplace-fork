@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,100..900;1,100..900&display=swap");
 
-
 .hero {
   background-color: white;
   flex-direction: column;
@@ -21,7 +20,7 @@
   margin: auto;
 }
 
-.orange-box-container {
+.orange-box-container-hero {
   background-color: white;
   /* /* max-width: 300px; */
   display: flex;
@@ -32,7 +31,7 @@
   padding-bottom: 40px;
 }
 
-.orange-box {
+.orange-box-hero {
   background-color: #f0911b;
   display: flex;
   flex-direction: column;
@@ -40,10 +39,9 @@
   padding-top: 15px;
   padding-left: 2px;
   padding-right: 2px;
-
 }
 
-.orange-box-top {
+.orange-box-top-hero {
   display: inline-block;
   color: black;
   margin-top: 2px;
@@ -54,14 +52,14 @@
   padding-top: 5px;
 }
 
-.orange-box-middle {
+.orange-box-middle-hero {
   padding-top: 17px;
   padding-left: 10px;
   font-size: 25px;
   font-family: "Aleo", serif;
 }
 
-.orange-box-bottom {
+.orange-box-bottom-hero {
   display: flex;
   margin-top: 0;
   margin-bottom: 0px;
@@ -76,14 +74,11 @@
   margin-left: 10px;
 }
 
-
-
 #hero-mobile-pic {
   display: flex;
   align-items: center;
   margin-left: 0px;
 }
-
 
 @media (min-width: 1024px) {
   .hero {

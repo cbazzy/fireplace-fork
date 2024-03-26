@@ -1,8 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Aleo:wght@300;400;700&display=swap");
+
 .trusted-container {
   display: flex;
   flex-direction: column;
   max-height: 100%;
   align-items: center;
+  font-family: Aleo, serif;
 }
 
 .trusted-title {
@@ -124,6 +127,5 @@
     flex-direction: row;
     justify-content: space-evenly;
     padding-top: 7px;
-
   }
 }
