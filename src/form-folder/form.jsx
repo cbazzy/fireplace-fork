@@ -11,14 +11,18 @@ export default function Form() {
   const [number, submitNumber] = useState("");
   const [email, submitEmail] = useState("");
 
-  const handleFullNameChange = (e) => {
-    setFullName(e.target.value);
+  const handleChange = (e) => {
+    submitFullName(e.target.value);
+    submitPostcode(e.target.value);
+    submitAddress(e.target.value);
+    submitNumber(e.target.value);
+    submitEmail(e.target.value);
   };
 
   const verifyField = (e) => {
     e.preventDefault();
-    if (fullName === "") {
-      alert("Full Name cannot be empty");
+    if (fullName || postcode || address || number || email === "") {
+      alert("Please ensure all fields are complete.");
     }
   };
 
@@ -31,27 +35,48 @@ export default function Form() {
             id="full-name"
             type="text"
             placeholder="... John Smith"
-            onChange={handleFullNameChange}
+            onChange={handleChange}
           />
 
           <label>Postcode</label>
-          <input id="postcode" type="text" placeholder="... B1 7UJ" />
+          <input
+            id="postcode"
+            type="text"
+            placeholder="... B1 7UJ"
+            onChange={handleChange}
+          />
 
           <label>House/Flat No./Name & first line of address</label>
           <input
             id="address"
             type="text"
             placeholder="... 1 Placeholder Lane"
+            onChange={handleChange}
           />
 
           <label>City</label>
-          <input id="city" type="text" placeholder="... London" />
+          <input
+            id="city"
+            type="text"
+            placeholder="... London"
+            onChange={handleChange}
+          />
 
           <label>Phone Number</label>
-          <input id="phone-number" type="number" placeholder="... John Smith" />
+          <input
+            id="phone-number"
+            type="text"
+            placeholder="... John Smith"
+            onChange={handleChange}
+          />
 
           <label>Email</label>
-          <input id="email" type="email" placeholder="... John Smith" />
+          <input
+            id="email"
+            type="text"
+            placeholder="... John Smith"
+            onChange={handleChange}
+          />
 
           <button type="submit">Request Design Consultation</button>
         </form>
