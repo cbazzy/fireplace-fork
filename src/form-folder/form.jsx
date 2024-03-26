@@ -8,6 +8,7 @@ export default function Form() {
   const [fullName, submitFullName] = useState("");
   const [postcode, submitPostcode] = useState("");
   const [address, submitAddress] = useState("");
+  const [city, submitCity] = useState("");
   const [number, submitNumber] = useState("");
   const [email, submitEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -22,6 +23,8 @@ export default function Form() {
     } else if (id === "address") {
       submitAddress(value);
     } else if (id === "phone-number") {
+      submitCity(value);
+    } else if (id === "city") {
       submitNumber(value);
     } else if (id === "email") {
       submitEmail(value);
@@ -30,7 +33,7 @@ export default function Form() {
 
   const verifyField = (e) => {
     e.preventDefault();
-    if (!fullName || !postcode || !address || !number || !email) {
+    if (!fullName || !postcode || !address || !city || !number || !email) {
       setErrorMessage("Please ensure all fields are complete."); // Display an error message if the field is empty
     } else {
       setErrorMessage(""); // Clear the error message if the field is not empty
