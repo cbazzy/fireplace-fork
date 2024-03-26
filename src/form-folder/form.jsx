@@ -13,11 +13,19 @@ export default function Form() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
-    submitFullName(e.target.value);
-    submitPostcode(e.target.value);
-    submitAddress(e.target.value);
-    submitNumber(e.target.value);
-    submitEmail(e.target.value);
+    const { id, value } = e.target;
+
+    if (id === "full-name") {
+      submitFullName(value);
+    } else if (id === "postcode") {
+      submitPostcode(value);
+    } else if (id === "address") {
+      submitAddress(value);
+    } else if (id === "phone-number") {
+      submitNumber(value);
+    } else if (id === "email") {
+      submitEmail(value);
+    }
   };
 
   const verifyField = (e) => {
