@@ -15,6 +15,10 @@ form {
   font-family: "Aleo", serif;
 }
 
+.error-message {
+  color: darkred;
+}
+
 label {
   display: flex;
   align-items: center;

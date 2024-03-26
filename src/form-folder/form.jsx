@@ -10,6 +10,7 @@ export default function Form() {
   const [address, submitAddress] = useState("");
   const [number, submitNumber] = useState("");
   const [email, submitEmail] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     submitFullName(e.target.value);
@@ -21,8 +22,11 @@ export default function Form() {
 
   const verifyField = (e) => {
     e.preventDefault();
-    if (fullName || postcode || address || number || email === "") {
-      alert("Please ensure all fields are complete.");
+    if (!fullName || !postcode || !address || !number || !email) {
+      setErrorMessage("Please ensure all fields are complete."); // Display an error message if the field is empty
+    } else {
+      setErrorMessage(""); // Clear the error message if the field is not empty
+      // Add similar checks for other fields if needed
     }
   };
 
@@ -79,6 +83,7 @@ export default function Form() {
           />
 
           <button type="submit">Request Design Consultation</button>
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
         </form>
       </div>
     </>
