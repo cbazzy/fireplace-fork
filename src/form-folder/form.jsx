@@ -2,65 +2,93 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import "./form.css";
+import { useReducer } from "react";
+
+const initialState = {
+  fullName: "",
+  postcode: "",
+  address: "",
+  city: "",
+  number: "",
+  email: "",
+  errorStatus: false,
+};
+
+function formReducer(state, action) {
+  switch (action.type) {
+    case "FULL_NAME":
+      return { ...state, fullName: action.payload };
+    case "POSTCODE":
+      return { ...state, postcode: action.payload };
+    case "ADDRESS":
+      return { ...state, address: action.payload };
+    case "CITY":
+      return { ...state, city: action.payload };
+    case "NUMBER":
+      return { ...state, number: action.payload };
+    case "EMAIL":
+      return { ...state, email: action.payload };
+    case "ERROR_STATUS":
+      return { ...state, errorStatus: action.payload };
+    default:
+      return state;
+  }
+}
 
 export default function Form() {
-  const [fullName, submitFullName] = useState("");
-  const [postcode, submitPostcode] = useState("");
-  const [address, submitAddress] = useState("");
-  const [city, submitCity] = useState("");
-  const [number, submitNumber] = useState("");
-  const [email, submitEmail] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-  const [postcodeErrorMessage, setPostcodeErrorMessage] = useState("");
+  const [state, dispatch] = useReducer(formReducer, initialState);
+  // const [postcode, submitPostcode] = useState("");
+  // const [address, submitAddress] = useState("");
+  // const [city, submitCity] = useState("");
+  // const [number, submitNumber] = useState("");
+  // const [email, submitEmail] = useState("");
+  // const [errorMessage, setErrorMessage] = useState("");
+  // const [postcodeErrorMessage, setPostcodeErrorMessage] = useState("");
+
+  const postcodeURL = "https://api.postcodes.io/postcodes/";
+
+  // useEffect(() => {
+  //   async function fetchPostcode(postcode) {
+  //     // put the inputted postcode into a variable "postcode"
+  //     if (postcode === "") {
+  //       return;
+  //     }
+  //     const response = await fetch(postcodeURL + postcode);
+  //     const result = await response.json();
+  //     const validCountry = ["England", "Scotland", "Wales"];
+  //     if (!validCountry.includes(result.country)) {
+  //       setPostcodeErrorMessage("Please enter a valid UK postcode.");
+  //     } else {
+  //       setPostcodeErrorMessage("");
+  //     }
+  //   }
+  //   fetchPostcode(postcode);
+  //   console.log(postcode);
+  // });
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-
-    if (id === "full-name") {
-      submitFullName(value);
-    } else if (id === "postcode") {
-      submitPostcode(value);
-    } else if (id === "address") {
-      submitAddress(value);
-    } else if (id === "phone-number") {
-      submitCity(value);
-    } else if (id === "city") {
-      submitNumber(value);
-    } else if (id === "email") {
-      submitEmail(value);
-    }
+    dispatch({ type: id.toUpperCase(), payload: value });
   };
 
   const verifyField = (e) => {
     e.preventDefault();
-    if (!fullName || !postcode || !address || !city || !number || !email) {
-      setErrorMessage("Please ensure all fields are complete."); // Display an error message if the field is empty
+    if (
+      !state.fullName ||
+      !state.postcode ||
+      !state.address ||
+      !state.city ||
+      !state.number ||
+      !state.email
+    ) {
+      dispatch({
+        type: "ERROR_STATUS",
+        payload: "Please ensure all fields are complete.",
+      });
     } else {
-      setErrorMessage(""); // Clear the error message if the field is not empty
-      // Add similar checks for other fields if needed
+      dispatch({ type: "ERROR_STATUS", payload: "" });
     }
   };
-
-  const postcodeURL = "https://api.postcodes.io/postcodes/";
-
-  useEffect(() => {
-    async function fetchPostcode(postcode) {
-      // put the inputted postcode into a variable "postcode"
-      if (postcode === "") {
-        return;
-      }
-      const response = await fetch(postcodeURL + postcode);
-      const result = await response.json();
-      const validCountry = ["England", "Scotland", "Wales"];
-      if (!validCountry.includes(result.country)) {
-        setPostcodeErrorMessage("Please enter a valid UK postcode.");
-      } else {
-        setPostcodeErrorMessage("");
-      }
-    }
-    fetchPostcode(postcode);
-    console.log(postcode);
-  });
 
   return (
     <>
@@ -87,9 +115,7 @@ export default function Form() {
               placeholder="B1 7UJ"
               onChange={handleChange}
             />
-            {setPostcodeErrorMessage && (
-              <p className="error-message">{postcodeErrorMessage}</p>
-            )}
+            <p className="error-message"></p>
             <label>House/Flat Number and Street Name</label>
             <input
               id="address"
@@ -127,7 +153,9 @@ export default function Form() {
               onChange={handleChange}
             />
           </div>
-          {errorMessage && <p className="error-message">{errorMessage}</p>}
+          {state.errorStatus && (
+            <p className="error-message">{state.errorStatus}</p>
+          )}
 
           <button className="submit-button" type="submit">
             Request Design Consultation
@@ -136,4 +164,32 @@ export default function Form() {
       </div>
     </>
   );
+
+  // const handleChange = (e) => {
+  //   const { id, value } = e.target;
+
+  //   if (id === "full-name") {
+  //     submitFullName(value);
+  //   } else if (id === "postcode") {
+  //     submitPostcode(value);
+  //   } else if (id === "address") {
+  //     submitAddress(value);
+  //   } else if (id === "phone-number") {
+  //     submitCity(value);
+  //   } else if (id === "city") {
+  //     submitNumber(value);
+  //   } else if (id === "email") {
+  //     submitEmail(value);
+  //   }
+  // };
+
+  // const verifyField = (e) => {
+  //   e.preventDefault();
+  //   if (!fullName || !postcode || !address || !city || !number || !email) {
+  //     setErrorMessage("Please ensure all fields are complete."); // Display an error message if the field is empty
+  //   } else {
+  //     setErrorMessage(""); // Clear the error message if the field is not empty
+  //     // Add similar checks for other fields if needed
+  //   }
+  // };
 }
