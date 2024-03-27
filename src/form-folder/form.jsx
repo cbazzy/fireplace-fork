@@ -1,6 +1,5 @@
 "use client";
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import "./form.css";
 
@@ -12,6 +11,7 @@ export default function Form() {
   const [number, submitNumber] = useState("");
   const [email, submitEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [postcodeErrorMessage, setPostcodeErrorMessage] = useState("");
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -41,22 +41,26 @@ export default function Form() {
     }
   };
 
+  const postcodeURL = "https://api.postcodes.io/postcodes/";
 
-  const postcodeURL = "api.postcodes.io/postcodes/";
-
-  // useEffect(() => {
-  //     async function fetchPostcode(postcode) { 
-
-          // put the inputted postcode into a variable "postcode" 🌟
-  
-  //       const response = await fetch(postcodeURL + postcode) 
-  //       const result = await response.json();
-
-  //       // check for result.country
-  //       // if the country is not England, Scotland or Wales
-  //       // display error text below the input box 🌟
-
-
+  useEffect(() => {
+    async function fetchPostcode(postcode) {
+      // put the inputted postcode into a variable "postcode"
+      if (postcode === "") {
+        return;
+      }
+      const response = await fetch(postcodeURL + postcode);
+      const result = await response.json();
+      const validCountry = ["England", "Scotland", "Wales"];
+      if (!validCountry.includes(result.country)) {
+        setPostcodeErrorMessage("Please enter a valid UK postcode.");
+      } else {
+        setPostcodeErrorMessage("");
+      }
+    }
+    fetchPostcode(postcode);
+    console.log(postcode);
+  });
 
   return (
     <>
@@ -83,6 +87,9 @@ export default function Form() {
               placeholder="B1 7UJ"
               onChange={handleChange}
             />
+            {setPostcodeErrorMessage && (
+              <p className="error-message">{postcodeErrorMessage}</p>
+            )}
             <label>House/Flat Number and Street Name</label>
             <input
               id="address"
