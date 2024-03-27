@@ -43,61 +43,68 @@ export default function Form() {
 
   return (
     <>
-      <div>
+      <div className="main-div">
+        <div className="design-booking">
+          <div className="design-booking-text">Design Booking</div>
+        </div>
+
         <form className="form" onSubmit={verifyField}>
-          <label>Full Name</label>
-          <input
-            id="full-name"
-            type="text"
-            placeholder="... John Smith"
-            onChange={handleChange}
-          />
+          <span>Personal Information:</span>
 
-          <label>Postcode</label>
-          <input
-            id="postcode"
-            type="text"
-            placeholder="... B1 7UJ"
-            onChange={handleChange}
-          />
+          <div className="gray">
+            <label>Full Name</label>
+            <input
+              id="full-name"
+              type="text"
+              placeholder="John Smith"
+              onChange={handleChange}
+            />
+            <label>Postcode</label>
+            <input
+              id="postcode"
+              type="text"
+              placeholder="B1 7UJ"
+              onChange={handleChange}
+            />
+            <label>House/Flat Number and Street Name</label>
+            <input
+              id="address"
+              type="text"
+              placeholder="1 Placeholder Lane"
+              onChange={handleChange}
+            />
+            <label>City</label>
+            <input
+              id="city"
+              type="text"
+              placeholder="London"
+              onChange={handleChange}
+            />
+          </div>
 
-          <label>House/Flat No./Name & first line of address</label>
-          <input
-            id="address"
-            type="text"
-            placeholder="... 1 Placeholder Lane"
-            onChange={handleChange}
-          />
+          <span>Contact Information: </span>
 
-          <label>City</label>
-          <input
-            id="city"
-            type="text"
-            placeholder="... London"
-            onChange={handleChange}
-          />
-
-          <label>Phone Number</label>
-          <input
-            id="phone-number"
-            type="tel"
-            placeholder="0"
-            onChange={handleChange}
-            maxLength={11}
-            pattern="0[0-9]*"
-            title="Please enter a 11-digit phone number starting with 0"
-          />
-
-          <label>Email</label>
-          <input
-            id="email"
-            type="email"
-            placeholder="... John Smith"
-            onChange={handleChange}
-          />
-
-          <button type="submit">Request Design Consultation</button>
+          <div className="gray">
+            <label id="phone-number">Phone Number</label>
+            <input
+              id="phone-number"
+              type="text"
+              placeholder="07123 456789"
+              onChange={handleChange}
+            />
+            <label>Email</label>
+            <input
+              id="email"
+              type="text"
+              placeholder="email@provider.com"
+              onChange={handleChange}
+            />
+          </div>
           {errorMessage && <p className="error-message">{errorMessage}</p>}
+
+          <button className="submit-button" type="submit">
+            Request Design Consultation
+          </button>
         </form>
       </div>
     </>

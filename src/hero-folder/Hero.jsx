@@ -26,11 +26,11 @@ export default function Hero() {
             </div>
 
             <div className="orange-box-bottom">
-              <div className="orange-box-bottom-left">
+              
                 <Link href="/booking" id="booking-button">
                   Book consultation
                 </Link>
-              </div>
+
             </div>
           </div>
         </div>
