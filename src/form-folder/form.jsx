@@ -88,14 +88,17 @@ export default function Form() {
             <label id="phone-number">Phone Number</label>
             <input
               id="phone-number"
-              type="text"
+              type="tel"
               placeholder="07123 456789"
               onChange={handleChange}
+              maxLength={11}
+              pattern="0[0-9]{10}"
+              title="Please enter an 11 digit number starting with 0"
             />
             <label>Email</label>
             <input
               id="email"
-              type="text"
+              type="email"
               placeholder="email@provider.com"
               onChange={handleChange}
             />
