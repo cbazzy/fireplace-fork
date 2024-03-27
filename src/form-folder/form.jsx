@@ -41,6 +41,23 @@ export default function Form() {
     }
   };
 
+
+  const postcodeURL = "api.postcodes.io/postcodes/";
+
+  // useEffect(() => {
+  //     async function fetchPostcode(postcode) { 
+
+          // put the inputted postcode into a variable "postcode" 🌟
+  
+  //       const response = await fetch(postcodeURL + postcode) 
+  //       const result = await response.json();
+
+  //       // check for result.country
+  //       // if the country is not England, Scotland or Wales
+  //       // display error text below the input box 🌟
+
+
+
   return (
     <>
       <div className="main-div">
