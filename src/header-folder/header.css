@@ -23,6 +23,7 @@ header {
   align-items: end;
   display: flex;
   flex-direction: column;
+  animation: menuOpen 0.5s ease 0s 1 normal forwards;
 }
 
 body.no-scroll {
@@ -41,6 +42,7 @@ nav {
   flex-direction: column;
   align-items: end;
   padding-right: 100px;
+  animation: menuOpen 0.5s ease 0s 1 normal forwards;
 }
 
 .links {
@@ -48,4 +50,16 @@ nav {
   padding-bottom: 50px;
   font-size: 2em;
   font-family: sans-serif;
+}
+
+@keyframes menuOpen {
+  0% {
+    transform: scaleX(0);
+    transform-origin: 100% 100%;
+  }
+
+  100% {
+    transform: scaleX(1);
+    transform-origin: 100% 100%;
+  }
 }
