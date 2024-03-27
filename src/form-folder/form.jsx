@@ -80,15 +80,18 @@ export default function Form() {
           <label>Phone Number</label>
           <input
             id="phone-number"
-            type="text"
-            placeholder="... John Smith"
+            type="tel"
+            placeholder="0"
             onChange={handleChange}
+            maxLength={11}
+            pattern="0[0-9]*"
+            title="Please enter a 11-digit phone number starting with 0"
           />
 
           <label>Email</label>
           <input
             id="email"
-            type="text"
+            type="email"
             placeholder="... John Smith"
             onChange={handleChange}
           />
