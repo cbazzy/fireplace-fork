@@ -30,6 +30,18 @@ function formReducer(state, action) {
       return { ...state, email: action.payload.newEmail };
     case "ERROR_STATUS":
       return { ...state, errorStatus: action.payload.newErrorStatus };
+    case "POSTCODE_VALIDATION":
+      if (action.payload.status === 200) {
+        return {
+          ...state,
+          errorStatus: "",
+        };
+      } else {
+        return {
+          ...state,
+          errorStatus: "Please enter a valid UK postcode",
+        };
+      }
     default:
       return state;
   }
@@ -183,7 +195,11 @@ export default function Form() {
               placeholder="B1 7UJ"
               onChange={handleChange}
             />
-            <p className="error-message"></p>
+            {state.errorStatus &&
+              state.errorStatus.startsWith(
+                "Please enter a valid UK postcode"
+              ) && <p className="error-message">{state.errorStatus}</p>}
+
             <label>House/Flat Number and Street Name</label>
             <input
               id="address"
