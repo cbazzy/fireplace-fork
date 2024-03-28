@@ -11,7 +11,6 @@ const initialState = {
   city: "",
   number: "",
   email: "",
-  errorStatus: false,
 };
 
 function formReducer(state, action) {
@@ -30,18 +29,9 @@ function formReducer(state, action) {
       return { ...state, email: action.payload.newEmail };
     case "ERROR_STATUS":
       return { ...state, errorStatus: action.payload.newErrorStatus };
-    case "POSTCODE_VALIDATION":
-      if (action.payload.status === 200) {
-        return {
-          ...state,
-          errorStatus: "",
-        };
-      } else {
-        return {
-          ...state,
-          errorStatus: "Please enter a valid UK postcode",
-        };
-      }
+      case "POSTCODE_ERROR":
+        return { ...state, errorStatus: action.payload.newPostcodeError };
+
     default:
       return state;
   }
@@ -169,6 +159,37 @@ export default function Form() {
       });
     }
   };
+
+  const verifyPostcode = (e) => {
+    e.preventDefault();
+    if (action.payload.status === 200) {
+          return {
+            ...state,
+            errorStatus: "",
+          };
+        } else {
+          return {
+            ...state,
+            errorStatus: "Please enter a valid UK postcode",
+          };
+        } {
+      dispatch({
+        type: "ERROR_STATUS",
+        payload: {
+          newErrorStatus: "Please ensure all fields are complete.",
+        },
+      });
+    } else {
+      dispatch({
+        type: "ERROR_STATUS",
+        payload: {
+          newErrorStatus: "",
+        },
+      });
+    }
+  };
+
+  
 
   return (
     <>
