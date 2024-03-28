@@ -29,9 +29,8 @@ function formReducer(state, action) {
       return { ...state, email: action.payload.newEmail };
     case "ERROR_STATUS":
       return { ...state, errorStatus: action.payload.newErrorStatus };
-      case "POSTCODE_ERROR":
-        return { ...state, errorStatus: action.payload.newPostcodeError };
-
+    case "POSTCODE_ERROR":
+      return { ...state, postcodeError: action.payload.newPostcodeError };
     default:
       return state;
   }
@@ -42,32 +41,32 @@ export default function Form() {
 
   const postcodeURL = "https://api.postcodes.io/postcodes/";
 
-  useEffect(() => {
-    async function fetchPostcode(postcode) {
-      if (postcode === "") {
-        return;
-      }
-      const response = await fetch(postcodeURL + postcode);
-      const result = await response.json();
-      const validCountry = ["England", "Scotland", "Wales"];
-      if (!validCountry.includes(result.country)) {
-        dispatch({
-          type: "ERROR_STATUS",
-          payload: {
-            newErrorStatus: "Please enter a valid UK postcode.",
-          },
-        });
-      } else {
-        dispatch({
-          type: "ERROR_STATUS",
-          payload: {
-            newErrorStatus: "",
-          },
-        });
-      }
-    }
-    fetchPostcode(state.postcode);
-  }, [state.postcode]);
+  // useEffect(() => {
+  //   async function fetchPostcode(postcode) {
+  //     if (postcode === "") {
+  //       return;
+  //     }
+  //     const response = await fetch(postcodeURL + postcode);
+  //     const result = await response.json();
+  //     const validCountry = ["England", "Scotland", "Wales"];
+  //     // if (!validCountry.includes(result.country)) {
+  //     //   dispatch({
+  //     //     type: "ERROR_STATUS",
+  //     //     payload: {
+  //     //       newErrorStatus: "Please enter a valid UK postcode.",
+  //     //     },
+  //     //   });
+  //     // } else {
+  //     //   dispatch({
+  //     //     type: "ERROR_STATUS",
+  //     //     payload: {
+  //     //       newErrorStatus: "",
+  //     //     },
+  //     //   });
+  //     // }
+  //   }
+  //   fetchPostcode(state.postcode);
+  // }, [state.postcode]);
 
   const handleChange = (e) => {
     const inputName = e.target.id;
@@ -160,36 +159,49 @@ export default function Form() {
     }
   };
 
-  const verifyPostcode = (e) => {
+  const verifyPostcode = async (e) => {
     e.preventDefault();
-    if (action.payload.status === 200) {
-          return {
-            ...state,
-            errorStatus: "",
-          };
-        } else {
-          return {
-            ...state,
-            errorStatus: "Please enter a valid UK postcode",
-          };
-        } {
+    const response = await fetch(postcodeURL + state.postcode);
+    const payload = await response.json();
+    if (payload.status === 200) {
       dispatch({
-        type: "ERROR_STATUS",
+        type: "POSTCODE_ERROR",
         payload: {
-          newErrorStatus: "Please ensure all fields are complete.",
+          newPostcodeError: "",
         },
       });
-    } else {
+    } else if (payload.status === 404) {
       dispatch({
-        type: "ERROR_STATUS",
+        type: "POSTCODE_ERROR",
         payload: {
-          newErrorStatus: "",
+          newPostcodeError:
+            "Please enter a English, Scottish or Welsh postcode",
         },
       });
     }
   };
 
-  
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    verifyField(e);
+    await verifyPostcode(e);
+  };
+
+  // dispatch({
+  //   type: "ERROR_STATUS",
+  //   payload: {
+  //     newErrorStatus: "Please ensure all fields are complete.",
+  //   },
+  // });
+  //   } else {
+  //     dispatch({
+  //       type: "ERROR_STATUS",
+  //       payload: {
+  //         newErrorStatus: "",
+  //       },
+  //     });
+  //   }
+  // };
 
   return (
     <>
@@ -198,7 +210,7 @@ export default function Form() {
           <div className="design-booking-text">Design Booking</div>
         </div>
 
-        <form className="form" onSubmit={verifyField}>
+        <form className="form" onSubmit={handleSubmit}>
           <span>Personal Information:</span>
 
           <div className="gray">
@@ -211,15 +223,12 @@ export default function Form() {
             />
             <label>Postcode</label>
             <input
+              value={state.postcode}
               id="postcode"
               type="text"
               placeholder="B1 7UJ"
               onChange={handleChange}
             />
-            {state.errorStatus &&
-              state.errorStatus.startsWith(
-                "Please enter a valid UK postcode"
-              ) && <p className="error-message">{state.errorStatus}</p>}
 
             <label>House/Flat Number and Street Name</label>
             <input
@@ -258,8 +267,12 @@ export default function Form() {
               onChange={handleChange}
             />
           </div>
+
           {state.errorStatus && (
             <p className="error-message">{state.errorStatus}</p>
+          )}
+          {state.postcodeError && (
+            <p className="error-message">{state.postcodeError}</p>
           )}
 
           <button className="submit-button" type="submit">
