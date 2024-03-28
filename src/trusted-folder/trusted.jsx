@@ -13,41 +13,38 @@ export default function Trusted() {
   });
 
   //initialise review state var & stores review data for each country
-  const [reviews, setReviews] = useState({
-    scotland: { text: null, author: null, location: null },
-    wales: { text: null, author: null, location: null },
-    england: { text: null, author: null, location: null },
+  const [review, setReview] = useState({
+    text: null,
+    author: null,
+    location: null,
   });
+
+  const [currentState, setCurrentState] = useState(null);
 
   //fetchData runs when certain dependancies change
   useEffect(() => {
-    async function fetchData(country) {
-      const response = await fetch(apiURL + country);
+    async function fetchData() {
+      if (currentState === null) {
+        setReview({ text: null, author: null, location: null });
+        return false;
+      }
+      const response = await fetch(apiURL + currentState);
       const result = await response.json();
       //updates reviews var with new data for the clicked country
-      setReviews((prevState) => ({
-        ...prevState,
-        [country]: {
-          text: result.text,
-          author: result.author,
-          location: result.location,
-        },
-      }));
+      setReview({
+        text: result.text,
+        author: result.author,
+        location: result.location,
+      });
     }
-    //loops over the keys of toggleStates object (these are the countries)
-    Object.keys(toggleStates).forEach((country) => {
-      if (toggleStates[country]) {
-        fetchData(country);
-      }
-    });
-  }, [toggleStates]);
+    fetchData();
+  }, [currentState]);
 
   function handleClick(country) {
-    setToggleStates((prevState) => ({
-      ...prevState,
-      [country]: !prevState[country],
-    }));
+    setCurrentState(country);
   }
+
+  const buttonNames = ["England", "Wales", "Scotland"];
 
   return (
     <div className="trusted-container">
@@ -59,61 +56,31 @@ export default function Trusted() {
       </div>
 
       <div className="buttons-container">
-        <div>
-          <button
-            onClick={() => handleClick("england")}
-            className={
-              toggleStates.england ? "buttonEng orangeEng" : "buttonEng"
-            }
-          >
-            England
-          </button>
-        </div>
-
-        <div>
-          <button
-            onClick={() => handleClick("wales")}
-            className={
-              toggleStates.wales ? "buttonWales orangeWales" : "buttonWales"
-            }
-          >
-            Wales
-          </button>
-        </div>
-
-        <div>
-          <button
-            onClick={() => handleClick("scotland")}
-            className={
-              toggleStates.scotland ? "buttonScot orangeScot" : "buttonScot"
-            }
-          >
-            Scotland
-          </button>
-        </div>
+        {buttonNames.map((country, i) => (
+          <div className="buttons-container" key={i}>
+            <div>
+              <button
+                onClick={() => handleClick(country)}
+                className={country == currentState ? "button orange" : "button"}
+              >
+                {country}
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
 
-      {Object.keys(toggleStates).map((country) => {
-        if (toggleStates[country]) {
-          return (
-            <div className="review-container" key={country}>
-              <div>
-                <p className="review-text">
-                  {'"' + reviews[country].text + '"'}
-                </p>
-              </div>
+      <div className="review-container" hidden={!currentState}>
+        <div>
+          <p className="review-text">{'"' + review.text + '"'}</p>
+        </div>
 
-              <div>
-                <p className="review-author-location-text">
-                  {reviews[country].author + " - " + reviews[country].location}
-                </p>
-              </div>
-            </div>
-          );
-        } else {
-          return null;
-        }
-      })}
+        <div>
+          <p className="review-author-location-text">
+            {review.author + " - " + review.location}
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

@@ -28,7 +28,7 @@
   font-size: 17px;
 }
 
-.buttonScot {
+.button {
   width: 102px;
   height: 40px;
   background-color: gray;
@@ -39,39 +39,7 @@
   cursor: pointer;
 }
 
-.orangeScot {
-  background-color: #f0911b;
-  color: black;
-}
-
-.buttonWales {
-  width: 102px;
-  height: 40px;
-  background-color: gray;
-  color: white;
-  border-width: 0px;
-  border-radius: 2px;
-  font-family: "Aleo", serif;
-  cursor: pointer;
-}
-
-.orangeWales {
-  background-color: #f0911b;
-  color: black;
-}
-
-.buttonEng {
-  width: 102px;
-  height: 40px;
-  background-color: gray;
-  color: white;
-  border-width: 0px;
-  border-radius: 2px;
-  font-family: "Aleo", serif;
-  cursor: pointer;
-}
-
-.orangeEng {
+.orange {
   background-color: #f0911b;
   color: black;
 }
@@ -81,6 +49,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  justify-self: center;
   padding-top: 7px;
 }
 
