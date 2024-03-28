@@ -91,7 +91,7 @@
     width: 250px;
   }
 
-  .title{
+  .title {
     font-size: 21px;
   }
 
@@ -102,7 +102,7 @@
 
   .pic-container {
     display: flex;
-    align-items: start;
-    justify-content: start;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 }
