@@ -23,7 +23,7 @@ const cards = [
 const FoundersCards = () => {
   return (
     <div className="mid-section">
-      {cards.map((card) => {
+      {cards.map((card, index) => {
         return (
           <FoundersCard
             key={index}

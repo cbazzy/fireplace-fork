@@ -22,7 +22,7 @@ const cards = [
 const Cards = () => {
   return (
     <div className="hiw-main">
-      {cards.map((card) => {
+      {cards.map((card, index) => {
         return (
           <Card
             key={index}
