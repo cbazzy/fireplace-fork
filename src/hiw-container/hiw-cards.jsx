@@ -23,7 +23,14 @@ const Cards = () => {
   return (
     <div className="hiw-main">
       {cards.map((card) => {
-        return <Card img={card.img} title={card.title} text={card.text} />;
+        return (
+          <Card
+            key={index}
+            img={card.img}
+            title={card.title}
+            text={card.text}
+          />
+        );
       })}
     </div>
   );

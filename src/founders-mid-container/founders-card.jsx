@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const FoundersCard = (props) => {
   return (
@@ -10,7 +11,7 @@ const FoundersCard = (props) => {
       </div>
 
       <div className="pic-container">
-        <img className="picture" src={props.img} alt="" />
+        <Image className="picture" src={props.img} alt="" />
       </div>
     </div>
   );

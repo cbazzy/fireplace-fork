@@ -51,7 +51,7 @@ export default function Trusted() {
       <div className="trusted-title">Trusted.</div>
 
       <div className="trusted-desc">
-        We've got thousands of happy customers all over the UK. Choose your
+        We&apos;ve got thousands of happy customers all over the UK. Choose your
         country to see the latest review:
       </div>
 

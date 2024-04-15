@@ -25,7 +25,12 @@ const FoundersCards = () => {
     <div className="mid-section">
       {cards.map((card) => {
         return (
-          <FoundersCard desc={card.desc} img={card.img} title={card.title} />
+          <FoundersCard
+            key={index}
+            desc={card.desc}
+            img={card.img}
+            title={card.title}
+          />
         );
       })}
     </div>
